@@ -1,12 +1,19 @@
 const express = require("express");
+const dotenv = require("dotenv");
 
 const { users } = require("./data/users.json"); //this way we can import other function and other json file from some other place
+//Database connection
 
+const DbConnection = require("./databaseConnection");
 //Importing routes
 const usersRouter = require("./routes/users");
 const booksRouter = require("./routes/books");
 
+dotenv.config();
+
 const app = express();
+
+DbConnection();
 
 const PORT = 8081;
 
